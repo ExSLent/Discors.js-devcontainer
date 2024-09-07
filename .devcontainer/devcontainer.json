@@ -1,0 +1,21 @@
+{
+    "name": "LearningBot",
+
+    "build": { "dockerfile": "Dockerfile" },
+
+    "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.tabSize": 2,
+        "git.detectSubmodules": false
+      },
+      "extensions": [
+        "davidanson.vscode-markdownlint"
+      ]
+      
+    }
+    },
+
+    "postCreateCommand": "npm install ; echo Cannnot run npm install",
+    "postStartCommand": "node --watch index.js ; echo Cannot start node"
+}
