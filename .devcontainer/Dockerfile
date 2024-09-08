@@ -7,6 +7,6 @@ RUN apk add openssh
 
 RUN mkdir /root/.ssh
 COPY /.ssh/id_rsa /root/.ssh/id_rsa
-RUN chmod o-rx /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
 
 CMD echo Container Started
