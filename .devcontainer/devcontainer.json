@@ -10,8 +10,11 @@
         "git.detectSubmodules": false
       },
       "extensions": [
-        "davidanson.vscode-markdownlint"
-      ]
+        "davidanson.vscode-markdownlint",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
+    ]
       
     }
     },
