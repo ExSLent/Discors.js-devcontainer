@@ -1,9 +1,9 @@
 {
-    "name": "LearningBot",
+  "name": "LearningBot",
 
-    "build": { "dockerfile": "Dockerfile" },
+  "build": { "dockerfile": "Dockerfile" },
 
-    "customizations": {
+  "customizations": {
     "vscode": {
       "settings": {
         "editor.tabSize": 2,
@@ -13,12 +13,12 @@
         "davidanson.vscode-markdownlint",
         "ms-azuretools.vscode-docker",
         "esbenp.prettier-vscode",
-        "eamodio.gitlens"
-    ]
-      
+        "eamodio.gitlens",
+        "GitHub.github-vscode-theme"
+      ]
     }
-    },
+  },
 
-    "postCreateCommand": "npm install ; echo Cannnot run npm install",
-    "postStartCommand": "node --watch index.js ; echo Cannot start node"
+  "postCreateCommand": "npm install ; echo Cannnot run npm install",
+  "postStartCommand": "node --watch index.js ; echo Cannot start node"
 }
