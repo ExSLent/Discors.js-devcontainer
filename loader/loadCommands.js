@@ -23,7 +23,7 @@ module.exports = async (bot) => {
       bot.commands.set(command.name, command);
       console.log(`Command ${command.name} has been loaded.`);
     } catch (error) {
-      console.error(`Impossible to load command ${command.name}`, error);
+      console.error(`Failed to load command ${command.name}`, error);
     }
   }
 };
