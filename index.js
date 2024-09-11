@@ -11,6 +11,7 @@ const loadCommands = require('./loader/loadCommands.js');
 //Connect the BOT
 bot.login(config.token);
 
+bot.commands = new Discord.Collection();
 loadCommands(bot);
 
 //Log when the BOT is online & reday
