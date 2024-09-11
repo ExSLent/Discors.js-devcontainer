@@ -1,16 +1,29 @@
+const { error } = require('console');
 const fs = require('fs');
+const path = require('path');
 
 module.exports = async (bot) => {
-  fs.readdirSync('./commands')
-    .filter((f) => f.endsWith('.js'))
-    .then(async (file) => {
-      let command = require('../commands/${file}.js');
+  const commandPath = path.join(__dirname, '../commands/utility/');
 
-      if (!command.name || typeof command.name !== 'string') {
-        throw new TypeError(`The command ${file} has no name set`);
-      }
+  const commandsFiles = fs
+    .readdirSync(commandPath)
+    .filter((f) => f.endsWith('.js'));
 
-      bot.command.set(command.name, command);
-      console.log(`The command ${file} has been loaded`);
-    });
+  for (const file of commandsFiles) {
+    const command = require(path.join(commandPath, file));
+
+    if (!command.name) {
+      throw new TypeError('Command require a name');
+    }
+    if (typeof command.name !== 'string') {
+      throw new TypeError('Command name must be a string');
+    }
+
+    try {
+      bot.commands.set(command.name, command);
+      console.log(`Command ${command.name} has been loaded.`);
+    } catch (error) {
+      console.error(`Impossible to load command ${command.name}`, error);
+    }
+  }
 };
