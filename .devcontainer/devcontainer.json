@@ -14,7 +14,8 @@
         "ms-azuretools.vscode-docker",
         "esbenp.prettier-vscode",
         "eamodio.gitlens",
-        "GitHub.github-vscode-theme"
+        "GitHub.github-vscode-theme",
+        "xabikos.JavaScriptSnippets"
       ]
     }
   },

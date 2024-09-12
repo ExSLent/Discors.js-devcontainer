@@ -3,14 +3,14 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async (bot) => {
-  const commandPath = path.join(__dirname, '../commands/utility/');
+  const commandsPath = path.join(__dirname, '../commands/');
 
   const commandsFiles = fs
-    .readdirSync(commandPath)
+    .readdirSync(commandsPath)
     .filter((f) => f.endsWith('.js'));
 
   for (const file of commandsFiles) {
-    const command = require(path.join(commandPath, file));
+    const command = require(path.join(commandsPath, file));
 
     if (!command.name) {
       throw new TypeError('Command require a name');

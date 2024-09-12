@@ -7,6 +7,8 @@ const bot = new Discord.Client({ intents: intents });
 const config = require('./config');
 // Import command loader
 const loadCommands = require('./loader/loadCommands.js');
+// Import event loader
+const loadEvents = require('./loader/loadEvents.js');
 
 // Connect the BOT
 bot.login(config.token);
@@ -20,7 +22,9 @@ try {
   console.error('Error while loading commands : ', error);
 }
 
-// Log when the BOT is online & reday
-bot.on('ready', async (stream) => {
-  console.log(bot.user.tag + ' is online');
-});
+// Load events
+try {
+  loadEvents(bot);
+} catch (error) {
+  console.error('Error while loading event : ', error);
+}
