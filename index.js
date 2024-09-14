@@ -8,7 +8,7 @@ const config = require('./config');
 // Import event loader
 const loadEvents = require('./loader/loadEvents.js');
 // Import sladhCommands loader
-const loadSlashCommands = require('../loader/loadSlashCommands');
+const loadSlashCommands = require('./loader/loadSlashCommands.js');
 
 // Connect the BOT
 bot.login(config.token);
