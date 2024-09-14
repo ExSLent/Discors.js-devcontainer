@@ -5,7 +5,6 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async (bot) => {
-  //Alexis
   let commands = [];
 
   const slashCommandsPath = path.join(__dirname, '../slashCommands/');
@@ -18,7 +17,7 @@ module.exports = async (bot) => {
 
     commands.push(command.data.toJSON());
   }
-  //////
+
   const rest = new REST().setToken(token);
   (async () => {
     try {

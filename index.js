@@ -1,6 +1,5 @@
 // Import Discord.JS library
 const Discord = require('discord.js');
-const Events = require('discord.js');
 // Create a bot instance
 const intents = new Discord.IntentsBitField(53608447);
 const bot = new Discord.Client({ intents: intents });
@@ -8,11 +7,20 @@ const bot = new Discord.Client({ intents: intents });
 const config = require('./config');
 // Import event loader
 const loadEvents = require('./loader/loadEvents.js');
+// Import sladhCommands loader
+const loadSlashCommands = require('../loader/loadSlashCommands');
 
 // Connect the BOT
 bot.login(config.token);
 
-// Load events + Load SlashCommands
+// Load SlashCommands
+try {
+  loadSlashCommands(bot);
+} catch (error) {
+  console.error('Error while loading slash commands : ', error);
+}
+
+// Load events
 try {
   loadEvents(bot);
 } catch (error) {
